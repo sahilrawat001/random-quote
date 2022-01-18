@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+ import './App.css';
+ import React, { useState ,useEffect} from 'react';
+ import axios from 'axios'
+import Quote from './quoteBox/Quote';
+ 
+const App=()=> {
+ const [item,setItem]= useState("");
 
-function App() {
+useEffect( () => {
+   const fetchItem= async ()=>{
+   const result = await axios(`  https://api.adviceslip.com/advice   `)
+ 
+   setItem(result.data.slip)
+   }
+   fetchItem();
+  }  , [ ]  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+     <Quote items={item} />
+  {/* {item.advice}   this can also be used thats the easy ne */}
+      </div>
   );
 }
 
