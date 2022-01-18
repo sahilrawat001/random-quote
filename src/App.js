@@ -15,9 +15,14 @@ useEffect( () => {
    fetchItem();
   }  , [ ]  )
   return (
-      <div>
+      <div className='container' >
      <Quote items={item} />
-  {/* {item.advice}   this can also be used thats the easy ne */}
+     <button 
+      onClick={()=>this.fetchItem() }
+     
+     className='click' >
+                click on me</button>
+   {/* {item.advice}   this can also be used thats the easy ne */}
       </div>
   );
 }
