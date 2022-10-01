@@ -1,14 +1,14 @@
-import React from 'react'
-const Quote = ( {items } ) => {
-     return (
-        <div>
-               <h1 className='quotebox' >
-                   {items.advice}
-                </h1>
-               </div>
-           )    
-           
-    
+import React from 'react';
+import './Quote.css';
+
+const Quote = ({items }) => {
+    return (
+        <div className='quotebox'>
+            <h1 className='quotebox-quote' >
+                {items.advice}
+            </h1>
+        </div>
+    )    
 }
 
  export default Quote;
