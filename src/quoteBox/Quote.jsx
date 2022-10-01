@@ -1,9 +1,9 @@
 import React from 'react'
-const Quote = ( {items } ) => {
+const Quote = ({ quote }) => {
      return (
         <div>
                <h1 className='quotebox' >
-                   {items.advice}
+                   {quote}
                 </h1>
                </div>
            )    
