@@ -30,7 +30,8 @@ const Map = () => {
                disabled={isLoading}
                onClick={Effect}
                className='click' >
-               {isLoading ? 'Loading...' : 'Click for a quote !'}</button>
+               {isLoading ? 'Loading...' : 'Click for a quote !'}
+            </button>
          </div>
 
          {/* {item.advice}   this can also be used thats the easy ne */}
