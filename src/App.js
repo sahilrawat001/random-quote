@@ -1,35 +1,29 @@
- import './App.css';
- import React, { useState ,useEffect} from 'react';
- import axios from 'axios'
+import './App.css';
+import React, { useState ,useEffect} from 'react';
+import axios from 'axios';
 import Quote from './quoteBox/Quote';
  
-const App=()=> {
- const [item,setItem]= useState("");
+const App = () => {
+   
+   const [item, setItem] = useState("");
 
-useEffect( () => {
-   const fetchItem= async ()=>{
-   const result = await axios(`  https://api.adviceslip.com/advice   `)
- 
-   setItem(result.data.slip)
-   }
-   fetchItem();
-  }   ,[ ] )
+   useEffect(() => {
+      const fetchItem = async () => {
+         const result = await axios(`https://api.adviceslip.com/advice`)
+         setItem(result.data.slip);
+      }
+      fetchItem();
+   },[]);
+
   return (
       <div className='container' >
         <div className='data'>
-
-        <Quote items={item} />
+            <Quote items={item} />
         </div>
+
         <div>
-
-     <button 
-     
-          onClick={  item   }
-
-     className='click' >
-                click on me</button>
+            <button onClick={item} className='click'>click on me</button>
         </div>
-
    {/* {item.advice}   this can also be used thats the easy ne */}
       </div>
   );
