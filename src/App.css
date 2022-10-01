@@ -16,12 +16,12 @@
 }
 
 body{
-  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #87bd13);
  background-size: cover;	 
 }
  
 .click{
-  color:  orange;
+  color:  rgb(255, 255, 255);
   text-decoration: none;
 }
 .click:hover{
@@ -36,7 +36,7 @@ button{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 18px;
   font-size: 25px;
-  background-color: rgb(233, 255, 31);
+  background-color: rgba(38, 38, 38, 0.542);
   outline: none;
   border:none;
   box-sizing: border-box;
