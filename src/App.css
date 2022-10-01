@@ -21,9 +21,10 @@ body{
 }
  
 .click{
-  color:  rgb(255, 255, 255);
+  color:rgb(255, 255, 255);
   text-decoration: none;
 }
+
 .click:hover{
   color:rgb(208, 255, 0) ;
   color: #000;
