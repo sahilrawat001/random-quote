@@ -1,52 +1,46 @@
-import './App.css';
-import React, { useState } from 'react';
-import Quote from './quoteBox/Quote';
+import "./App.css";
+import React, { useState } from "react";
+import Endpoints from "./Endpoints";
+import Quote from "./quoteBox/Quote";
 
 const Map = () => {
-   const [item, setItem] = useState("");
-   const [isLoading , setIsLoading] = useState(false);
+  const [item, setItem] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-   const Effect = () => {
-      setIsLoading(true);
-      fetch("  https://api.adviceslip.com/advice  ")
-         .then(res => res.json())
-         .then(
-            (result) => {
-               setItem(result.slip);
-               console.log(result.slip.advice)
-            },
-         )
-         .finally(() => {
-            setIsLoading(false);
-         });
-   }
-   return (
-      <div className='container' >
-         <div className='data'>
-            <Quote items={item} />
-         </div>
-         <div>
-            <button
-               disabled={isLoading}
-               onClick={Effect}
-               className='click' >
-               {isLoading ? 'Loading...' : 'Click for a quote !'}</button>
-         </div>
+  const Effect = () => {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get("lang");
 
-         {/* {item.advice}   this can also be used thats the easy ne */}
+    setIsLoading(true);
+    const endpoint = lang ? Endpoints[lang].url : Endpoints.default.url;
+
+    fetch(endpoint, { cache: "no-store" })
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        const field = lang ? Endpoints[lang].field : Endpoints.default.field;
+        const quote = field
+          .split(".")
+          .reduce((o, p) => (o ? o[p] : ""), result);
+        setItem(quote);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+  return (
+    <div className="container">
+      <div className="data">
+        <Quote quote={item} />
       </div>
-   );
-}
+      <div>
+        <button disabled={isLoading} onClick={Effect} className="click">
+          {isLoading ? "Loading..." : "Click for a quote !"}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Map;
-/*
-        useEffect( () => {
-           const fetchItem= async ()=>{
-           const result = await axios(`  https://api.adviceslip.com/advice   `)
-         
-           setItem(result.data.slip)
-           }
-           fetchItem();
-          }  , [ ]  )
-          
-          */

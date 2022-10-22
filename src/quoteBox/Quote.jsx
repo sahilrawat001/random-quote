@@ -1,11 +1,11 @@
 import React from 'react';
 import './Quote.css';
 
-const Quote = ({items }) => {
+const Quote = ({quote }) => {
     return (
         <div className='quotebox'>
             <h1 className='quotebox-quote'>
-                {items.advice}
+                {quote}
             </h1>
         </div>
     )    
