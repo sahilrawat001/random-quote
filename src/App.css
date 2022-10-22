@@ -1,23 +1,28 @@
+html, body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
 #root{
   background-color: #f54f02;
-  max-width: 400px;
+  width: 400px;
   background: rgba(0, 0, 0, .57);
   border-radius: 20px;
   box-sizing: border-box ;
   padding: 40px;
   margin: auto;
   color: white;
-  margin-top: 100px;	
-  margin-bottom: 50px;
-
+  text-align: center;
 }
 
 body{
   background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #87bd13);
- background-size: cover;	 
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
  
 .click{
@@ -29,13 +34,13 @@ body{
   color:rgb(208, 255, 0) ;
   color: #000;
 }
+
 button{
   cursor: pointer;
   width: 200px;
   margin-top: 25px;
-  margin-left: 60px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 18px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 18px;
   font-size: 25px;
   background-color: rgba(38, 38, 38, 0.542);
   outline: none;

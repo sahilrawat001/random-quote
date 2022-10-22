@@ -16,7 +16,7 @@ const App = () => {
    },[]);
 
   return (
-      <div className='container' >
+      <div className='container'>
         <div className='data'>
             <Quote items={item} />
         </div>
